@@ -1,0 +1,16 @@
+VOID/audioFiles/abandonship.wav
+VOID/audioFiles/detection.wav
+VOID/audioFiles/downloads/audio.wav
+VOID/audioFiles/start.wav
+VOID/audioFiles/stop.wav
+VOID/audioFiles/welcome.wav
+VOID/commands.txt
+VOID/filepaths.txt
+VOID/Images/settingsIcon.png
+VOID/pythonFiles/commandTable.py
+VOID/pythonFiles/Functions/checkUpdate.py
+VOID/pythonFiles/Functions/fileStart.py
+VOID/pythonFiles/Functions/getUpdate.py
+VOID/pythonFiles/Functions/videoFunctions.py
+VOID/pythonFiles/Functions/voiceCommandFunctions.py
+VOID/pythonFiles/VOID.pyw
