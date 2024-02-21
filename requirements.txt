@@ -1,0 +1,12 @@
+requests==2.31.0
+numpy==1.26.0
+keyboard==0.13.5
+soundfile==0.12.1
+sounddevice==0.4.6
+speech_recognition==3.10.0
+PyQt5==5.15.10
+selenium==4.15.2
+cv2==4.8.1.78
+Pillow==10.1.0
+pytube==15.0.0
+pydub==0.25.1
