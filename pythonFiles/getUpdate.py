@@ -25,12 +25,20 @@ def transfer_files():
     with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
         zip_ref.extractall(target_folder)
     
-    # Move files from VOID-main to VOID folder
+    # Move files from VOID-main to VOID folder while maintaining the directory structure
     main_folder = os.path.join(target_folder, 'VOID-main')
     for root, dirs, files in os.walk(main_folder):
+        # Determine the corresponding destination folder within VOID
+        relative_path = os.path.relpath(root, main_folder)
+        destination_folder = os.path.join(target_folder, relative_path)
+        
+        # Create the destination folder if it doesn't exist
+        os.makedirs(destination_folder, exist_ok=True)
+        
+        # Move each file to the destination folder
         for file in files:
             source_path = os.path.join(root, file)
-            destination_path = os.path.join(target_folder, file)
+            destination_path = os.path.join(destination_folder, file)
             shutil.move(source_path, destination_path)
     
     # Remove the VOID-main folder
