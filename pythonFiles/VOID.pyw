@@ -167,7 +167,7 @@ def video():
                 button_height, button_width, _ = settingsIcon.shape
                 if 600 <= buttonPressLocation[0] <= 600 + button_width and 10 <= buttonPressLocation[1] <= 10 + button_height:
                     #print("Button clicked!")
-                    launch_program("VOID/pythonFiles/commandTable.py", [], "python")
+                    launch_program("commandTable.py", [], "python")
                     buttonPressed = False
 
             cv2.waitKey(1)
@@ -203,29 +203,24 @@ def audioListening():
             for items in commands:
                 if items[0] in word:
                     download_audio(f"https://www.youtube.com/watch?v={items[1]}")
-                    print("downloaded")
-                    play_audio_file("VOID/audioFiles/downloads/audio.wav")
-                    print("played")
+                    #print("downloaded")
+                    play_audio_file(f"{os.path.dirname(__file__).split("\\pythonFiles")[0]}\\audioFiles\\downloads\\audio.wav")
+                    #print("played")
 
 def check_for_update():
-    with open("VOID/version.txt", "r") as f:
+    with open(f"{os.path.dirname(__file__).split("\\pythonFiles")[0]}\\version.txt", "r") as f:
         currentVersion = f.readline() 
     webVersion = get_webpage_text("https://github.com/TheTrollGodJr/VOID/blob/main/VOID/version.txt")[0]
     if webVersion != currentVersion:
-        launch_program("VOID/pythonFile/getUpdate.py", [], "python")
+        launch_program("getUpdate.py", [], "python")
         sys.exit(1)
 
 if __name__ == "__main__":
-    print("\n")
-    download_dir = os.path.abspath(__file__).replace('\\', '/').split('/pythonFiles')[0]
-    print(download_dir)
-    print("\n")
-    sys.exit(1)
     check_for_update()
 
-    commands = get_commands("VOID/commands.txt")
+    commands = get_commands("commands.txt")
     print(commands)
-    settingsIcon = cv2.imread("VOID/Images/settingsicon.png", cv2.IMREAD_UNCHANGED)
+    settingsIcon = cv2.imread(f"{os.path.dirname(__file__).split("\\pythonFiles")[0]}\\Images\\settingsicon.png", cv2.IMREAD_UNCHANGED)
     
     listening = False
     audioPlaying = False
@@ -234,7 +229,7 @@ if __name__ == "__main__":
     buttonPressLocation = [0,0] # x,y
     
     #audioPath = 'E:/Kieran Python Codes/MotionDetection/audioFiles'
-    audioPath = 'VOID/audioFiles'
+    audioPath = f'{os.path.dirname(__file__).split("\\pythonFiles")[0]}\\audioFiles'
     word = ""
     audioDevice = 1
 
