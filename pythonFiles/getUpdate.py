@@ -22,8 +22,8 @@ def download_file(url):
         shutil.copyfileobj(response.raw, out_file)
 
 def transfer_files():
-    zip_file_path = "VOID/VOID.zip"
-    target_folder = "VOID"
+    zip_file_path = "VOID.zip"
+    target_folder = os.path.dirname(__file__).split("\\pythonFiles")[0]
     
     # Extract all files from the zip archive
     with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
@@ -49,7 +49,7 @@ def transfer_files():
     shutil.rmtree(main_folder)
 
 def get_packages():
-    with open('VOID/requirements.txt', 'r') as file:
+    with open(f'{os.path.dirname(__file__).split("\\pythonFiles")[0]}\\requirements.txt', 'r') as file:
         requirements = file.readlines()
     
     for requirement in requirements:
