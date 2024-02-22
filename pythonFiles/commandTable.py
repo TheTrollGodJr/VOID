@@ -98,6 +98,8 @@ class TableWindow(QMainWindow):
     #    self.hide()  # Hide the window instead of closing it    
 
 def launch_table(filename):
+    with open(filename, "a") as f:
+        pass
     app = QApplication(sys.argv)
     app.setStyle(QStyleFactory.create("Fusion"))  # Set Fusion style (modern style)
     window = TableWindow(filename)
@@ -105,4 +107,4 @@ def launch_table(filename):
     sys.exit(app.exec_())
 
 if __name__ == "__main__":
-    launch_table("VOID/commands.txt")
+    launch_table("commands.txt")
