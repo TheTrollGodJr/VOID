@@ -21,7 +21,7 @@ def download_file(url):
     with open("VOID.zip", 'wb') as out_file:
         shutil.copyfileobj(response.raw, out_file)
 
-def transfer_files()
+def transfer_files():
     zip_file_path = "VOID/VOID.zip"
     target_folder = "VOID"
     
