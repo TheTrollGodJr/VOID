@@ -203,12 +203,11 @@ def audioListening():
             for items in commands:
                 if items[0] in word:
                     download_audio(f"https://www.youtube.com/watch?v={items[1]}")
-                    #print("downloaded")
-                    play_audio_file(f"{os.path.dirname(__file__).split("\\pythonFiles")[0]}\\audioFiles\\downloads\\audio.wav")
+                    play_audio_file(f"{voidPath}/audioFiles/downloads/audio.wav")
                     #print("played")
 
 def check_for_update():
-    with open(f"{os.path.dirname(__file__).split("\\pythonFiles")[0]}\\version.txt", "r") as f:
+    with open(f"{voidPath}/version.txt", "r") as f:
         currentVersion = f.readline() 
     webVersion = get_webpage_text("https://github.com/TheTrollGodJr/VOID/blob/main/VOID/version.txt")[0]
     if webVersion != currentVersion:
@@ -219,8 +218,9 @@ if __name__ == "__main__":
     check_for_update()
 
     commands = get_commands("commands.txt")
-    print(commands)
-    settingsIcon = cv2.imread(f"{os.path.dirname(__file__).split("\\pythonFiles")[0]}\\Images\\settingsicon.png", cv2.IMREAD_UNCHANGED)
+    #print(commands)
+    voidPath = os.path.dirname(__file__).split("\\pythonFiles")[0].replace("\\", "/")
+    settingsIcon = cv2.imread(f"{voidPath}/Images/settingsicon.png", cv2.IMREAD_UNCHANGED)
     
     listening = False
     audioPlaying = False
@@ -229,7 +229,7 @@ if __name__ == "__main__":
     buttonPressLocation = [0,0] # x,y
     
     #audioPath = 'E:/Kieran Python Codes/MotionDetection/audioFiles'
-    audioPath = f'{os.path.dirname(__file__).split("\\pythonFiles")[0]}\\audioFiles'
+    audioPath = f'{voidPath}/audioFiles'
     word = ""
     audioDevice = 1
 
