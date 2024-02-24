@@ -219,7 +219,7 @@ if __name__ == "__main__":
 
     commands = get_commands("commands.txt")
     #print(commands)
-    voidPath = os.path.dirname(__file__).split("\\pythonFiles")[0].replace("\\", "/")
+    voidPath = os.getcwd().split("\\pythonFiles")[0].replace("\\", "/")
     settingsIcon = cv2.imread(f"{voidPath}/Images/settingsicon.png", cv2.IMREAD_UNCHANGED)
     
     listening = False
