@@ -13,7 +13,7 @@ def get_commands(filename):
     return commands
 
 def download_audio(youtube_url):
-    voidFolderPath = os.path.dirname(__file__).split("\\pythonFiles")[0].replace("\\", "/")
+    voidFolderPath = os.getcwd().split("\\pythonFiles")[0].replace("\\", "/")
     yt = YouTube(youtube_url)
     audio_stream = yt.streams.filter(only_audio=True).first()
     audio_stream.download(f"{voidFolderPath}/audioFiles/downloads/", "audio.wav")
